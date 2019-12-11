@@ -42,7 +42,7 @@ public class routeCheckDriver
             out.println();
             out.println("Route " + check.getRouteId());
 
-            //for each routepoint of the route get the
+            //for each RoutesDataBase of the route get the
             for(int j = 1; j < 16; j++) {
                 getRoutePointAttributes(check, j, out);
             }

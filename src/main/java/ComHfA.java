@@ -1,5 +1,5 @@
 
-public class HFData {
+public class ComHfA {
 
     int activePresetNrIndex = 0;
     int defaultGroupIndex = 1;
@@ -69,7 +69,7 @@ public class HFData {
     String aleCallAddress;
     String usedScanList;
 
-    public HFData() {
+    public ComHfA() {
         activePresetNr = "";
         defaultGroup = "";
         standbyPresetNr = "";
@@ -98,7 +98,7 @@ public class HFData {
         aleCallAddress = "";
         usedScanList = "";
     }
-    public HFData(byte[] preset) {
+    public ComHfA(byte[] preset) {
 
         //presetValid = setPresetValid(preset, presetValid);
 
@@ -297,35 +297,51 @@ public class HFData {
         aleSoundInterval = Integer.toString(ASI);
     }
 
-    public void setGroupId(byte[]  fileData) {
-        //load the group id
-        byte [] data = new byte[26];
-        for (int i = 0; i < 26; i++) {
-            data[i] = fileData[this.getDefaultGroupIndex() + i];
+    public void setGroupIdAndAvail(byte[] fileData) {
+        byte [] temp = new byte[12]; // the length of the group id
+        String [] groupIdAndAvail= new String[198];//an array where all the group id's and avails will go
+
+        int placeToLoad = getGroupIdIndex();
+
+        for (int a = 0; a < 99; a++) {// there are 99
+            for (int b = 0; b < 12; b++) {
+                temp[b] = (fileData[(placeToLoad + b)]);
+            }
+
+            String intGroupId = "";
+            for (int i = 0; i < temp.length; i++) {
+                intGroupId = intGroupId.concat((decodeAscii(Integer.toHexString((temp[i])))));
+            }
+            groupIdAndAvail[a] = intGroupId;
+
+            //the availability bit
+            //it's the byte after the last id byte
+            //if (placeToLoad == )
+
+
+            placeToLoad = placeToLoad + 13;
         }
+            System.out.println("Group ID is " + groupIdAndAvail[0]);
+        System.out.println("Availability is " + groupIdAndAvail[1]);
 
-//        //print out the contents
-//        for (int i = 0; i < data.length; i++) {
-//            String g = decodeAscii(Integer.toHexString(data[i]));
-//            System.out.println("G is " + g);
-//        }
-
-
-
-
-
-        //int index = this.getDefaultGroupIndex();
-
-
-        //each group can be upto 12 characters
-
-//        for (int i = index; i < index + 26; i++) {
-//            if (data[i].)
-//        }
     }
+
+    //i have a file of bytes that I decode and for each group of
+    //what I want is an array of strings with the even indexes being the group id an the odd index being availability
+    //change the individual bytes to a string and add it to and array
+
+    //byte to string array
+
+    //string array to string
+
+    //string to groupid array
 
     public void setGroupAvailable() {
 
+    }
+
+    public void setGroupIdIndex(int newGroupIdIndex) {
+        groupIdIndex = newGroupIdIndex;
     }
 
 
@@ -398,6 +414,10 @@ public class HFData {
 
     public int getAleSoundIntervalIndex() {
         return aleSoundIntervalSoundIndex;
+    }
+
+    public int getGroupIdIndex() {
+        return groupIdIndex;
     }
 
 

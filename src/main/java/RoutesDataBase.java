@@ -1,5 +1,5 @@
 
-public class routepoint {
+public class RoutesDataBase {
 
     int pointValidIndex = 0;
     int idStartIndex = 1;
@@ -21,7 +21,7 @@ public class routepoint {
     String legBearing;
     String isEngagementPoint;
 
-    public routepoint() {
+    public RoutesDataBase() {
         routepointValid = "";
         id = "";
         legAltitude = "";
@@ -32,7 +32,7 @@ public class routepoint {
     }
 
 
-    public routepoint(byte[] routepoint) {
+    public RoutesDataBase(byte[] routepoint) {
 
         routepointValid = setRoutepointValid(routepoint, routepointValid);
 

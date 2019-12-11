@@ -1,5 +1,5 @@
 
-public class DirectionFinder {
+public class ComDirFinderA {
 
     int isValidElementIndex = 0;
     int idStartIndex = 1;
@@ -17,10 +17,10 @@ public class DirectionFinder {
     String frequencyExtension = "";
     String extensionMultiplier = "";
 
-    public DirectionFinder() {
+    public ComDirFinderA() {
         isValidElement = "0";
     }
-    public DirectionFinder(byte[] preset) {
+    public ComDirFinderA(byte[] preset) {
 
         isValidElement = setIsValidElement(preset, isValidElement);
 

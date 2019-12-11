@@ -29,15 +29,15 @@ public class SmallBinaryFiles {
         dis.readFully(fileData);
         dis.close();
 
-        //Waypoint validity
+        //WaypointDataBase validity
         //get byte 1
         byte WpValidity = fileData[WaypointValidityIndex];
         //compare it
         if (WpValidity == 1) {//print the validity
-            System.out.println("Waypoint Valid");
+            System.out.println("WaypointDataBase Valid");
         }
         else {//print the validity
-            System.out.println("Waypoint invalid");
+            System.out.println("WaypointDataBase invalid");
         }
 
         //WaypointID

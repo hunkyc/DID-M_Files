@@ -3,15 +3,16 @@ import java.io.*;
 
 public class driver {
 
-    public static void main( String args[]) throws FileNotFoundException, IOException {
-        File file = new File("/Users/martinsmith/Downloads/ACOM_FHZ_A.AC1");
+    public static void main(String args[]) throws FileNotFoundException, IOException {
+        File file = new File("/Users/martinsmith/IdeaProjects/DID-M_Files/src/test/Data/ACOM_FHZ_A.AC1");
         byte[] fileData = new byte[(int) file.length()];
         DataInputStream dis = new DataInputStream(new FileInputStream(file));
         dis.readFully(fileData);
         dis.close();
 
 
-        HFData HF = new HFData();
+
+    ComHfA HF = new ComHfA();
 
         HF.setActivePresetNr(byte2Binary4(fileData[HF.getActivePresetNrIndex()]));
 
@@ -51,7 +52,7 @@ public class driver {
 
         HF.setAleSoundInterval((temp1 + temp2));
 
-        HF.setGroupId(fileData);
+        HF.setGroupIdAndAvail(fileData);
 
 
 
@@ -108,7 +109,7 @@ public class driver {
     }
 
     private static void CreateBeacon(byte[] fileData2) {
-        beacon BC = new beacon();
+        RnavdataBaseA BC = new RnavdataBaseA();
 
         BC.setValidity(byte2Binary4(fileData2[0]));
 
@@ -438,7 +439,6 @@ public class driver {
         return total;
     }
 
-}
 
 //    switch (missionData) {
 //        case ACM_FAILURE: {
@@ -481,7 +481,7 @@ public class driver {
 //            break;
 //        }
 //
-//        case DID_IDENTIFIER: {
+//        case DidIdentifier: {
 //            dataFile = "DID_NAME.CF#";
 //            break;
 //        }
@@ -654,4 +654,4 @@ public class driver {
     //open the appropriate file
 
     //create the class of the data required
-//}// end of driver class
+}// end of driver class

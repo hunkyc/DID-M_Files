@@ -2,21 +2,21 @@
 public class route {
     String routeValidity = "";
     String routeId = "";
-    routepoint point1, point16 = new routepoint();
-    routepoint point2 = new routepoint();
-    routepoint point3 = new routepoint();
-    routepoint point4 = new routepoint();
-    routepoint point5 = new routepoint();
-    routepoint point6 = new routepoint();
-    routepoint point7 = new routepoint();
-    routepoint point8 = new routepoint();
-    routepoint point9 = new routepoint();
-    routepoint point10 = new routepoint();
-    routepoint point11 = new routepoint();
-    routepoint point12 = new routepoint();
-    routepoint point13 = new routepoint();
-    routepoint point14 = new routepoint();
-    routepoint point15 = new routepoint();
+    RoutesDataBase point1, point16 = new RoutesDataBase();
+    RoutesDataBase point2 = new RoutesDataBase();
+    RoutesDataBase point3 = new RoutesDataBase();
+    RoutesDataBase point4 = new RoutesDataBase();
+    RoutesDataBase point5 = new RoutesDataBase();
+    RoutesDataBase point6 = new RoutesDataBase();
+    RoutesDataBase point7 = new RoutesDataBase();
+    RoutesDataBase point8 = new RoutesDataBase();
+    RoutesDataBase point9 = new RoutesDataBase();
+    RoutesDataBase point10 = new RoutesDataBase();
+    RoutesDataBase point11 = new RoutesDataBase();
+    RoutesDataBase point12 = new RoutesDataBase();
+    RoutesDataBase point13 = new RoutesDataBase();
+    RoutesDataBase point14 = new RoutesDataBase();
+    RoutesDataBase point15 = new RoutesDataBase();
     int routeLength = 276;
     int routeStart = 0;
     int routeValidityIndex = 0;
@@ -84,15 +84,15 @@ public class route {
         return routeId;
     }
 
-    public routepoint setRoutePoints(byte[] route, int index) {
+    public RoutesDataBase setRoutePoints(byte[] route, int index) {
         byte[] temp = new byte[18];
 
-        //the data to use for constructor of routepoint
+        //the data to use for constructor of RoutesDataBase
         for (int f = 0; f < temp.length; f++) {
             temp[f] = route[(f + index)];
         }
 
-        routepoint routepoint1 = new routepoint(temp);
+        RoutesDataBase routepoint1 = new RoutesDataBase(temp);
         return routepoint1;
     }
 
@@ -100,11 +100,11 @@ public class route {
 
     public String getRouteId() { return routeId; }
 
-//    public routepoint getRoutepoint(int i) {
-//        routepoint r;
+//    public RoutesDataBase getRoutepoint(int i) {
+//        RoutesDataBase r;
 //        switch (i) {
 //            case 1: {
-//                r = new routepoint()
+//                r = new RoutesDataBase()
 //            }
 //        }
 //

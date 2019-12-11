@@ -1,5 +1,5 @@
 
-public class beacon {
+public class RnavdataBaseA {
 
     int validityIndex = 0;
     int idStartIndex = 1;
@@ -46,7 +46,7 @@ public class beacon {
     String direction;
     String count;
 
-    public beacon() {
+    public RnavdataBaseA() {
         validity = "";
         id = "";
         positionValid = "";
@@ -193,7 +193,7 @@ public class beacon {
         else if (indexValue == 2) {
             beaconDataKind = "ILS";
         }
-        else beaconDataKind = "Invalid beacon data kind";
+        else beaconDataKind = "Invalid RnavdataBaseA data kind";
     }
 
     public void setChannelNumber(int input) {

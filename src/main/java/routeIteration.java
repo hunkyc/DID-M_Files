@@ -20,7 +20,7 @@ public class routeIteration {
         int routeIdEndIndex = 5;
         int routeLength = 276;
 
-        //routepoint variables
+        //RoutesDataBase variables
         int routepoint1StartIndex = 6;
         int routepoint2StartIndex = 24;
         int routepointSize = 18;
@@ -65,7 +65,7 @@ public class routeIteration {
         else {//print the validity
             System.out.println("Route invalid");
         }
-        //routepoint data
+        //RoutesDataBase data
         //upto 15 routepoints
         byte[] routepoint1 = new byte[18];
         for (int j = 0; j < routepoint1.length; j++) {
@@ -73,7 +73,7 @@ public class routeIteration {
             routepoint1[j] = route1[j + routepoint1StartIndex];
         }
 
-        //routepoint validity
+        //RoutesDataBase validity
         byte pointValidity = routepoint1[pointValidityIndex];
         //compare it
         if (pointValidity == 1) {//print the validity
@@ -83,7 +83,7 @@ public class routeIteration {
             System.out.println("Point invalid");
         }
 
-        //routepoint ID
+        //RoutesDataBase ID
         System.out.print("Routepoint ID = " );
         for (int k = pointIdByte1Index; k <= pointIdByte2Index; k++) {
             //Convert to ascii character and print
@@ -91,7 +91,7 @@ public class routeIteration {
         }
         System.out.println();
 
-        //routepoint altitude
+        //RoutesDataBase altitude
         byte Altitude1 = fileData[altByte1Index];
         byte Altitude2 = fileData[altByte2Index];
 

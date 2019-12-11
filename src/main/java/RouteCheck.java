@@ -23,7 +23,8 @@ public class RouteCheck {
         int isEngagementPointIndex = 23;
         int offset = 18;
 
-        File file = new File("C:\\Temp\\RUTDBASE.CF1");
+//        File file = new File("C:\\Temp\\RUTDBASE.CF1");
+        File file = new File("/Users/martinsmith/IdeaProjects/DID-M_Files/src/test/Data" );
         byte[] fileData = new byte[(int) file.length()];
         DataInputStream dis = new DataInputStream(new FileInputStream(file));
         dis.readFully(fileData);
